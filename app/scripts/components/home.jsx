@@ -1,5 +1,6 @@
 var React = require('react');
-var LinkedStateMix = require('');
+var Dropdown = require('./dropdown/src/dropdown');
+// var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var Home = React.createClass({
   getInitialState: function(){
@@ -20,21 +21,13 @@ var Home = React.createClass({
 
   },
   render: function() {
+    if(this.state.dropdownOpen){
+      visible = "visible"
+    }
+    visible = "hidden";
     return (
-      <div className="hero-unit">
-        <h1>'Allo, 'Allo!</h1>
-        <p>You now have</p>
-        <ul>
-            <li>ReactJS Reflux Boilerplate</li>
-        </ul>
-        <div>
-          <label>{this.state.red}</label>
-          <Slider ref="red" update={this.update}></Slider>
-          <label>{this.state.green}</label>
-          <Slider ref="green" update={this.update}></Slider>
-          <label>{this.state.blue}</label>
-          <Slider ref="blue" update={this.update}></Slider>
-        </div>
+      <div>
+          <Dropdown />
       </div>
     );
   },
@@ -43,11 +36,23 @@ var Home = React.createClass({
   }
 });
 
-var Slider = React.createClass(){
-  mixins: [LinkedStateMix],
+var Badge = React.createClass({
+  render: function(){
+    return 
+  }
+});
+
+var UnorderedList = React.createClass({
+  render: function(){
+    return 
+  }
+});
+
+var Slider = React.createClass({
+  // mixins: [LinkedStateMix],
   render: function(){
     return <input type="range" min="0" max="255" onChange={this.props.update} />
   }
-}
+});
 
 module.exports = Home;
