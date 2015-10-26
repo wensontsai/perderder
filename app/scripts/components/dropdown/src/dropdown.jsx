@@ -3,18 +3,26 @@
 
 var React = require('react');
 var Button = require('./button');
-// var List = require('./list');
+var ListItem = require('./list-item');
 
 var Dropdown = React.createClass({
 	handleClick: function(){
 		alert('dropdown yoo');
 	},
 	render: function(){
+		var list = this.props.items.map(function(item){
+			return <ListItem item={item} />
+		});
 		return (
 			<div className = "dropdown">
-				<Button whenClicked={this.handleClick} className="btn-default" title="perfermerdet" subTitleClassName="caret" />
+				<Button 
+					whenClicked={this.handleClick} 
+					className="btn-default" 
+					title={this.props.title} 
+					subTitleClassName="caret" 
+					/>
 				<ul>
-					<List />
+					{list}
 				</ul>
 			</div>
 		);
