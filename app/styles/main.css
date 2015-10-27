@@ -8,6 +8,10 @@ body .btn .caret{
     margin-left: 1rem;
 }
 
+.active{
+    background-color: red;
+}
+
 .hero-unit {
     margin: 50px auto 0 auto;
     width: 300px;
